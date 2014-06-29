@@ -1,0 +1,4 @@
+{
+	"minimum": "Must be at least {amount, plural, one {1 character} other {# characters}} long",
+	"maximum": "Must be at most {amount, plural, one {1 character} other {# characters}} long"
+}
