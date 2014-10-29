@@ -1,7 +1,8 @@
+/* global ch, i18n:true, describe, it, beforeEach, expect, jasmine */
 describe('LessThanCheck', function () {
-	
+
 	var LessThanCheck = ch.maenulabs.validation.LessThanCheck;
-	
+
 	var property = null;
 	var limit = null;
 	var check = null;
@@ -13,7 +14,7 @@ describe('LessThanCheck', function () {
 		check = new LessThanCheck(property, limit);
 		object = {};
 	});
-	
+
 	it('should have customizable messager', function () {
 		var message = 'message';
 		check = new LessThanCheck(property, limit, function () {
@@ -23,7 +24,7 @@ describe('LessThanCheck', function () {
 			a: message
 		});
 	});
-	
+
 	it('should not have an error when the property is less than limit', function () {
 		object[property] = limit - 1;
 		expect(check.hasErrors(object)).toBeFalsy();
@@ -32,7 +33,7 @@ describe('LessThanCheck', function () {
 		object[property] = limit + 1;
 		expect(check.hasErrors(object)).toBeTruthy();
 	});
-	
+
 	it('should build the appropriate error', function () {
 		var message = 'message';
 		var messager = jasmine.createSpy().andReturn(message);
@@ -48,5 +49,5 @@ describe('LessThanCheck', function () {
 			amount: limit
 		});
 	});
-	
+
 });

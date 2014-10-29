@@ -1,5 +1,6 @@
+/* global ch, i18n:true, describe, it, beforeEach, expect, jasmine */
 describe('ExistenceCheck', function () {
-	
+
 	var ExistenceCheck = ch.maenulabs.validation.ExistenceCheck;
 
 	var property = null;
@@ -11,7 +12,7 @@ describe('ExistenceCheck', function () {
 		check = new ExistenceCheck(property);
 		object = {};
 	});
-	
+
 	it('should have customizable messager', function () {
 		var message = 'message';
 		check = new ExistenceCheck(property, function () {
@@ -21,7 +22,7 @@ describe('ExistenceCheck', function () {
 			a: message
 		});
 	});
-	
+
 	it('should not have an error when the property defined', function () {
 		object[property] = null;
 		expect(check.hasErrors(object)).toBeTruthy();
@@ -46,7 +47,7 @@ describe('ExistenceCheck', function () {
 		};
 		expect(check.hasErrors(object)).toBeFalsy();
 	});
-	
+
 	it('should build the appropriate error', function () {
 		var message = 'message';
 		var messager = jasmine.createSpy().andReturn(message);
@@ -60,5 +61,5 @@ describe('ExistenceCheck', function () {
 		});
 		expect(messager).toHaveBeenCalled();
 	});
-	
+
 });

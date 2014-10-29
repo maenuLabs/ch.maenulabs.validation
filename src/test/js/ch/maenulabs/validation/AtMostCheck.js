@@ -1,5 +1,6 @@
+/* global ch, i18n:true, describe, it, beforeEach, expect, jasmine */
 describe('AtMostCheck', function () {
-	
+
 	var AtMostCheck = ch.maenulabs.validation.AtMostCheck;
 
 	var property = null;
@@ -13,7 +14,7 @@ describe('AtMostCheck', function () {
 		check = new AtMostCheck(property, limit);
 		object = {};
 	});
-	
+
 	it('should have customizable messager', function () {
 		var message = 'message';
 		check = new AtMostCheck(property, limit, function () {
@@ -23,7 +24,7 @@ describe('AtMostCheck', function () {
 			a: message
 		});
 	});
-	
+
 	it('should not have an error when the property is at most the limit', function () {
 		object[property] = limit - 1;
 		expect(check.hasErrors(object)).toBeFalsy();
@@ -32,7 +33,7 @@ describe('AtMostCheck', function () {
 		object[property] = limit + 1;
 		expect(check.hasErrors(object)).toBeTruthy();
 	});
-	
+
 	it('should build the appropriate error', function () {
 		var message = 'message';
 		var messager = jasmine.createSpy().andReturn(message);
@@ -48,5 +49,5 @@ describe('AtMostCheck', function () {
 			amount: limit
 		});
 	});
-	
+
 });

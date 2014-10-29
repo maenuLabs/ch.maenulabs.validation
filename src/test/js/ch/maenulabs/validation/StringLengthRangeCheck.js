@@ -1,7 +1,8 @@
+/* global ch, i18n:true, describe, it, beforeEach, expect, jasmine */
 describe('StringLengthRangeCheck', function () {
-	
+
 	var StringLengthRangeCheck = ch.maenulabs.validation.StringLengthRangeCheck;
-	
+
 	var property = null;
 	var minimum = null;
 	var maximum = null;
@@ -17,7 +18,7 @@ describe('StringLengthRangeCheck', function () {
 		};
 		check = new StringLengthRangeCheck(property, minimum, maximum);
 	});
-	
+
 	it('should not have and error', function () {
 		expect(check.hasErrors(object)).toBeFalsy();
 		expect(check.getErrors(object)).toEqual({
@@ -26,30 +27,30 @@ describe('StringLengthRangeCheck', function () {
 	});
 
 	describe('hasErrors', function () {
-	
+
 		it('should have errors when undefined', function () {
 			expect(check.hasErrors(undefined)).toBeTruthy();
 		});
-	
+
 		it('should have errors when too short', function () {
 			object.z = '';
 			expect(check.hasErrors(object)).toBeTruthy();
 		});
-	
+
 		it('should have errors when too long', function () {
 			object.z = 'text text';
 			expect(check.hasErrors(object)).toBeTruthy();
 		});
-	
+
 	});
 
 	describe('getErrors', function () {
-		
+
 		var atLeastMessage = null;
 		var atMostMessage = null;
 		var atLeastMessager = null;
 		var atMostMessager = null;
-		
+
 		beforeEach(function () {
 			atLeastMessage = 'must be at least';
 			atMostMessage = 'must be at most';
@@ -62,7 +63,7 @@ describe('StringLengthRangeCheck', function () {
 				}
 			};
 		});
-	
+
 		it('should get errors when undefined', function () {
 			expect(check.getErrors(undefined)).toEqual({
 				z: {
@@ -72,7 +73,7 @@ describe('StringLengthRangeCheck', function () {
 			expect(atLeastMessager).toHaveBeenCalled();
 			expect(atMostMessager).toHaveBeenCalled();
 		});
-	
+
 		it('should get errors when too short', function () {
 			object.z = '';
 			expect(check.getErrors(object)).toEqual({
@@ -83,7 +84,7 @@ describe('StringLengthRangeCheck', function () {
 			expect(atLeastMessager).toHaveBeenCalled();
 			expect(atMostMessager).not.toHaveBeenCalled();
 		});
-	
+
 		it('should get errors when too long', function () {
 			object.z = 'text text';
 			expect(check.getErrors(object)).toEqual({
@@ -94,7 +95,7 @@ describe('StringLengthRangeCheck', function () {
 			expect(atLeastMessager).not.toHaveBeenCalled();
 			expect(atMostMessager).toHaveBeenCalled();
 		});
-	
+
 	});
-	
+
 });
