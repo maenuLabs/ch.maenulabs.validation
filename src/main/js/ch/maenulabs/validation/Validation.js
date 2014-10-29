@@ -3,7 +3,7 @@
 	/**
 	 * Validates objects.
 	 *
-	 * @module validation
+	 * @module ch.maenulabs.validation
 	 * @class Validation
 	 * @implements ICheck
 	 */

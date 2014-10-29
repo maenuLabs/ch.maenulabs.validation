@@ -3,7 +3,7 @@
 	/**
 	 * Checks a comparable property to be greater than a limit.
 	 *
-	 * @module validation
+	 * @module ch.maenulabs.validation
 	 * @class GreaterThanCheck
 	 * @extends PropertiesCheck
 	 */

@@ -1,7 +1,7 @@
 /**
  * Checks for a valid value.
  *
- * @module validation
+ * @module ch.maenulabs.validation
  * @class ICheck
  */
 /**

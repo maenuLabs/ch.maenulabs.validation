@@ -3,7 +3,7 @@
 	/**
 	 * Checks a property's properties.
 	 *
-	 * @module validation
+	 * @module ch.maenulabs.validation
 	 * @class ObjectCheck
 	 * @implements ICheck
 	 */

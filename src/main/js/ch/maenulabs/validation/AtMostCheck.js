@@ -3,7 +3,7 @@
 	/**
 	 * Checks a comparable property to be at most a limit.
 	 *
-	 * @module validation
+	 * @module ch.maenulabs.validation
 	 * @class AtMostCheck
 	 * @extends PropertiesCheck
 	 */

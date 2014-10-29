@@ -6,7 +6,7 @@
 	/**
 	 * Checks whether the string length lies in the specified range.
 	 *
-	 * @module validation
+	 * @module ch.maenulabs.validation
 	 * @class StringLengthRangeCheck
 	 * @extends ObjectCheck
 	 */
