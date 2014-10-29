@@ -21,7 +21,7 @@
 	/**
 	 * Validates objects.
 	 *
-	 * @module validation
+	 * @module ch.maenulabs.validation
 	 * @class Validation
 	 * @implements ICheck
 	 */
@@ -124,7 +124,7 @@
 	/**
 	 * Checks some properties.
 	 *
-	 * @module validation
+	 * @module ch.maenulabs.validation
 	 * @class PropertiesCheck
 	 * @implements ICheck
 	 */
@@ -205,7 +205,7 @@
 	/**
 	 * Checks a property's properties.
 	 *
-	 * @module validation
+	 * @module ch.maenulabs.validation
 	 * @class ObjectCheck
 	 * @implements ICheck
 	 */
@@ -274,7 +274,7 @@
 	/**
 	 * Checks a property to be defined.
 	 *
-	 * @module validation
+	 * @module ch.maenulabs.validation
 	 * @class ExistenceCheck
 	 * @extends PropertiesCheck
 	 */
@@ -301,7 +301,7 @@
 	/**
 	 * Checks a comparable property to be at least a limit.
 	 *
-	 * @module validation
+	 * @module ch.maenulabs.validation
 	 * @class AtLeastCheck
 	 * @extends PropertiesCheck
 	 */
@@ -331,7 +331,7 @@
 	/**
 	 * Checks a comparable property to be at most a limit.
 	 *
-	 * @module validation
+	 * @module ch.maenulabs.validation
 	 * @class AtMostCheck
 	 * @extends PropertiesCheck
 	 */
@@ -361,7 +361,7 @@
 	/**
 	 * Checks a comparable property to be greater than a limit.
 	 *
-	 * @module validation
+	 * @module ch.maenulabs.validation
 	 * @class GreaterThanCheck
 	 * @extends PropertiesCheck
 	 */
@@ -391,7 +391,7 @@
 	/**
 	 * Checks a comparable property to be less than a limit.
 	 *
-	 * @module validation
+	 * @module ch.maenulabs.validation
 	 * @class LessThanCheck
 	 * @extends PropertiesCheck
 	 */
@@ -424,7 +424,7 @@
 	/**
 	 * Checks whether the string length lies in the specified range.
 	 *
-	 * @module validation
+	 * @module ch.maenulabs.validation
 	 * @class StringLengthRangeCheck
 	 * @extends ObjectCheck
 	 */

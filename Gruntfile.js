@@ -80,7 +80,7 @@ module.exports = function(grunt) {
 			options: {
 				specs: '<%= meta.src.test %>/js/**/*.js',
 				vendor: [
-					'node_modules/ch.maenulabs.type/ch.maenulabs.type-0.1.0.js'
+					'node_modules/ch.maenulabs.type/ch.maenulabs.type-*.js'
 				]
 			}
 		},
