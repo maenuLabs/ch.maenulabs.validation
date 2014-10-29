@@ -13,7 +13,6 @@ module.exports = function(grunt) {
 			bin: {
 				coverage: 'bin/coverage',
 				i18n: 'bin/i18n',
-				temporary: 'bin/temporary',
 				plato: 'bin/plato'
 			},
 			doc: 'doc',
@@ -80,7 +79,7 @@ module.exports = function(grunt) {
 			options: {
 				specs: '<%= meta.src.test %>/js/**/*.js',
 				vendor: [
-					'node_modules/ch.maenulabs.type/ch.maenulabs.type-*.js'
+					'node_modules/ch.maenulabs.type/ch.maenulabs.type.js'
 				]
 			}
 		},
@@ -98,7 +97,7 @@ module.exports = function(grunt) {
 					'<%= meta.src.main %>/js/**/LessThanCheck.js',
 					'<%= meta.src.main %>/js/**/StringLengthRangeCheck.js'
 				],
-				dest: '<%= meta.bin.temporary %>/<%= meta.package.name %>-<%= meta.package.version %>.js'
+				dest: '<%= meta.package.name %>.js'
 			}
 		},
 		uglify: {
@@ -107,12 +106,12 @@ module.exports = function(grunt) {
 			},
 			validation: {
 				files: {
-					'<%= meta.bin.temporary %>/<%= meta.package.name %>-<%= meta.package.version %>.min.js': '<%= meta.bin.temporary %>/<%= meta.package.name %>-<%= meta.package.version %>.js'
+					'<%= meta.package.name %>.min.js': '<%= meta.package.name %>.js'
 				}
 			},
 			i18n: {
 				files: {
-					'<%= meta.bin.i18n %>/<%= meta.package.name %>-i18n-en-<%= meta.package.version %>.min.js': '<%= meta.bin.i18n %>/<%= meta.package.name %>-i18n-en-<%= meta.package.version %>.js'
+					'<%= meta.package.name %>-i18n-en.min.js': '<%= meta.package.name %>-i18n-en.js'
 				}
 			}
 		},
@@ -131,7 +130,7 @@ module.exports = function(grunt) {
 			en: {
 				locale: 'en',
 				inputdir: '<%= meta.src.main %>/i18n/en',
-				output: '<%= meta.bin.i18n %>/<%= meta.package.name %>-i18n-en-<%= meta.package.version %>.js'
+				output: '<%= meta.package.name %>-i18n-en.js'
 			}
 		},
 		jshint: {
@@ -214,4 +213,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('build-i18n', ['messageformat:en', 'uglify:i18n']);
 	grunt.registerTask('build-documentation', 'yuidoc:validation');
 	grunt.registerTask('build-module', ['concat:validation', 'uglify:validation']);
+	
+	grunt.registerTask('build', ['clean:bin', 'clean:doc', 'build-check', 'build-documentation', 'build-i18n', 'build-module']);
 };
