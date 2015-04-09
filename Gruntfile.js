@@ -126,11 +126,9 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-		messageformat: {
-			en: {
-				locale: 'en',
-				inputdir: '<%= meta.src.main %>/i18n/en',
-				output: '<%= meta.package.name %>-i18n-en.js'
+		exec: {
+			'messageformat-en': {
+				cmd: 'node_modules/messageformat/bin/messageformat.js --locale en <%= meta.src.main %>/i18n/en <%= meta.package.name %>-i18n-en.js'
 			}
 		},
 		jshint: {
@@ -203,14 +201,14 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-messageformat');
+	grunt.loadNpmTasks('grunt-exec');
 	grunt.loadNpmTasks('grunt-plato');
 
 	grunt.registerTask('test-normal', 'jasmine:normal');
 	grunt.registerTask('test-coverage', 'jasmine:coverage');
 	
 	grunt.registerTask('build-check', ['plato:src', 'plato:test', 'jshint:main', 'jshint:test']);
-	grunt.registerTask('build-i18n', ['messageformat:en', 'uglify:i18n']);
+	grunt.registerTask('build-i18n', ['exec:messageformat-en', 'uglify:i18n']);
 	grunt.registerTask('build-documentation', 'yuidoc:validation');
 	grunt.registerTask('build-module', ['concat:validation', 'uglify:validation']);
 	
